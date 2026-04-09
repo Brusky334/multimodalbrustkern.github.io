@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawbacks — Quantum Futures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">// QUANTUM FUTURES</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="better.html">Why Better</a></li>
+    <li><a href="drawbacks.html" class="active">Drawbacks</a></li>
+    <li><a href="potential.html">Potential</a></li>
+  </ul>
+</nav>
+
+<main>
+  <header class="page-header fade-in">
+    <p class="section-label">Section 02</p>
+    <h1 class="page-title">Current Drawbacks</h1>
+    <p class="page-intro">
+      Quantum computers are extraordinarily fragile. Understanding why requires
+      understanding what qubits are made of — and why each approach carries
+      its own engineering nightmare.
+    </p>
+  </header>
+
+  <!-- VIDEO FEATURE -->
+  <section class="content-section fade-in">
+    <div class="feature-block">
+      <p class="feature-label">↳ Video Feature — The Three Types of Qubits</p>
+
+      <div class="video-wrapper">
+        <!--
+          REPLACE THIS PLACEHOLDER WITH YOUR ACTUAL VIDEO EMBED.
+          For YouTube: <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          For a local video: <video src="your-video.mp4" controls></video>
+          Remove the .video-placeholder div below when you add your real embed.
+        -->
+        <div class="video-placeholder">
+          <span>▶</span>
+          <strong style="color: var(--text-muted); font-family: var(--mono); font-size: 14px;">Video: The Three Types of Qubits</strong>
+          <p style="font-size: 12px; text-align: center; max-width: 300px;">
+            Replace this placeholder with your video embed.<br>
+            See the HTML comment above for instructions.
+          </p>
+        </div>
+      </div>
+
+      <p style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-top: 0.75rem;">
+        [Video caption: Title of video, source, year]
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE QUBIT TYPES -->
+  <section class="content-section fade-in">
+    <h2>The three dominant qubit architectures</h2>
+    <p>
+      There is no single agreed-upon way to build a qubit. Each physical
+      implementation has unique strengths and unique challenges that have
+      made building reliable quantum computers so difficult.
+    </p>
+
+    <div class="qubit-cards">
+      <div class="qubit-card">
+        <p class="qubit-card-type">Type 01</p>
+        <h3>Superconducting Qubits</h3>
+        <p>
+          Used by Google and IBM, these are circuits cooled to near absolute
+          zero (–273°C) that exhibit quantum behavior. They are fast and
+          manufacturable using adapted semiconductor techniques, but require
+          enormous refrigeration infrastructure and lose coherence in
+          microseconds.
+        </p>
+        <br>
+        <p class="qubit-challenge">
+          Key challenge: decoherence time (~100 μs)
+        </p>
+      </div>
+
+      <div class="qubit-card">
+        <p class="qubit-card-type">Type 02</p>
+        <h3>Trapped Ion Qubits</h3>
+        <p>
+          Individual ions are suspended in electromagnetic fields and
+          manipulated with lasers. They offer exceptional coherence times
+          (seconds to minutes) and near-perfect gate fidelity, but operating
+          speeds are much slower and scaling to thousands of qubits has
+          proven extremely difficult.
+        </p>
+        <p class="qubit-challenge">
+          Key challenge: gate speed and scaling
+        </p>
+      </div>
+
+      <div class="qubit-card">
+        <p class="qubit-card-type">Type 03</p>
+        <h3>Photonic Qubits</h3>
+        <p>
+          These use individual photons (particles of light) as qubits.
+          Photons naturally resist decoherence and can travel through
+          optical fiber, making them promising for quantum networking.
+          However, making photons interact with each other is exceptionally
+          hard, which makes two-qubit gate operations unreliable.
+        </p>
+        <p class="qubit-challenge">
+          Key challenge: two-qubit gate fidelity
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORTING TEXT -->
+  <section class="content-section fade-in">
+    <h2>The noise problem</h2>
+    <div class="supporting-text">
+      <p>
+        Every qubit architecture shares one fundamental enemy: noise. Any
+        interaction with the outside environment — a stray photon, a tiny
+        vibration, even cosmic rays — can "collapse" a qubit's superposition
+        and corrupt the computation. This phenomenon is called decoherence.
+      </p>
+      <p>
+        Today's machines are called NISQ devices: Noisy Intermediate-Scale
+        Quantum computers. They have tens to thousands of qubits, but every
+        qubit is error-prone. Running long calculations before errors
+        accumulate is the central engineering challenge of this decade.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section fade-in">
+    <h2>Quantum error correction requires massive overhead</h2>
+    <div class="supporting-text">
+      <p>
+        The solution to noise is quantum error correction (QEC): using many
+        physical qubits to encode a single, reliable "logical" qubit. Current
+        estimates suggest you may need 1,000 to 10,000 physical qubits to
+        produce one error-corrected logical qubit suitable for serious computation.
+      </p>
+      <p>
+        This means a quantum computer capable of breaking modern encryption
+        would need millions of physical, low-error qubits. We currently have
+        thousands. The gap is large — but the trajectory of progress suggests
+        it is closable within the next two to three decades.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section fade-in">
+    <h2>Temperature and infrastructure</h2>
+    <div class="supporting-text">
+      <p>
+        Superconducting quantum computers, the most advanced today, must
+        operate at temperatures colder than deep space — around 15 millikelvins,
+        roughly 250 times colder than the cosmic microwave background. This
+        requires specialized dilution refrigerators the size of a wardrobe that
+        cost hundreds of thousands of dollars.
+      </p>
+      <p>
+        This is not a fundamental obstacle — engineering solutions are being
+        developed to miniaturize and scale the cooling systems. But it does mean
+        that near-term quantum computers will be cloud-accessed data center
+        machines, not desktop devices or consumer hardware.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="credits">
+  <div class="credits-inner fade-in">
+    <div class="credits-col">
+      <h3>Citations for this section</h3>
+      <ol>
+        <li>[Citation for NISQ / decoherence]</li>
+        <li>[Citation for superconducting qubits]</li>
+        <li>[Citation for trapped ion qubits]</li>
+        <li>[Citation for photonic qubits]</li>
+        <li>[Citation for error correction overhead]</li>
+        <li>[Add citations here]</li>
+      </ol>
+    </div>
+    <div class="credits-col">
+      <h3>Credits</h3>
+      <ul>
+        <li>Created by [Your Name]</li>
+        <li>[Course / Institution]</li>
+        <li>Video: [Video title, creator, source]</li>
+      </ul>
+    </div>
+  </div>
+  <div class="credits-bottom fade-in">
+    <span>Quantum Futures — Multimodal Project</span>
+    <span><a href="index.html" style="color: var(--accent); text-decoration: none;">← Back to Home</a></span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

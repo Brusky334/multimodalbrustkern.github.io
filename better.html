@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Better — Quantum Futures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">// QUANTUM FUTURES</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="better.html" class="active">Why Better</a></li>
+    <li><a href="drawbacks.html">Drawbacks</a></li>
+    <li><a href="potential.html">Potential</a></li>
+  </ul>
+</nav>
+
+<main>
+  <header class="page-header fade-in">
+    <p class="section-label">Section 01</p>
+    <h1 class="page-title">Why Quantum Computers<br>Are So Much Better</h1>
+    <p class="page-intro">
+      The difference between a classical bit and a qubit isn't just faster —
+      it's a fundamentally different model of computation.
+    </p>
+  </header>
+
+  <!-- INTERACTIVE FEATURE -->
+  <section class="content-section fade-in">
+    <div class="feature-block">
+      <p class="feature-label">↳ Interactive Feature — Bit vs. Qubit Explorer</p>
+
+      <div class="slider-container" style="margin-bottom: 2rem;">
+
+        <!-- CLASSICAL BIT SIDE -->
+        <div class="slider-col is-classical">
+          <span class="slider-col-label">Classical Bits</span>
+
+          <div class="slider-group" style="margin-bottom: 1.25rem;">
+            <label>Number of bits: <span id="bit-count-label">4</span></label>
+            <input type="range" id="bit-slider" min="1" max="16" value="4" step="1" />
+          </div>
+
+          <p style="font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-bottom: 0.4rem;">States expressible simultaneously</p>
+          <div class="slider-display" id="classical-states">1</div>
+          <p class="slider-desc">A classical bit is always exactly 0 or 1.</p>
+
+          <div class="comparison-bar">
+            <div class="comparison-bar-fill" id="classical-bar" style="width: 1%;"></div>
+          </div>
+          <div id="bit-visual" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.25rem;"></div>
+        </div>
+
+        <!-- QUBIT SIDE -->
+        <div class="slider-col is-quantum">
+          <span class="slider-col-label">Qubits</span>
+
+          <div class="slider-group" style="margin-bottom: 1.25rem;">
+            <label>Number of qubits: <span id="qubit-count-label">4</span></label>
+            <input type="range" id="qubit-slider" min="1" max="16" value="4" step="1" />
+          </div>
+
+          <p style="font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-bottom: 0.4rem;">States held in superposition simultaneously</p>
+          <div class="slider-display" id="quantum-states">16</div>
+          <p class="slider-desc">A qubit can be 0, 1, or both at once.</p>
+
+          <div class="comparison-bar">
+            <div class="comparison-bar-fill purple" id="quantum-bar" style="width: 25%;"></div>
+          </div>
+          <div id="qubit-visual" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.25rem;"></div>
+        </div>
+      </div>
+
+      <div class="summary-bar">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Classical states</div>
+          <div class="summary-cell-value" id="summary-classical" style="color: var(--teal);">1</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Quantum states</div>
+          <div class="summary-cell-value" id="summary-quantum" style="color: var(--violet);">16</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Quantum advantage</div>
+          <div class="summary-cell-value" id="summary-advantage" style="color: var(--text);">16×</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUPPORTING TEXT -->
+  <section class="content-section fade-in">
+    <h2>Superposition: Being in two places at once</h2>
+    <div class="supporting-text">
+      <p>
+        A classical bit is a switch — it's either off (0) or on (1). Every computation
+        your laptop does is ultimately a massive cascade of these binary decisions.
+        The problem is that for certain problems — like searching a vast database, or
+        factoring a very large number — you have to check possibilities one at a time.
+      </p>
+      <p>
+        A qubit exploits quantum superposition: until measured, it exists in a
+        combination of both 0 and 1 simultaneously. With 4 qubits, you can represent
+        all 16 possible 4-bit values at the same time. With 300 qubits, you can hold
+        more states simultaneously than there are atoms in the observable universe.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section fade-in">
+    <h2>Entanglement: Instant correlation across particles</h2>
+    <div class="supporting-text">
+      <p>
+        When two qubits are "entangled," the state of one instantly determines the state
+        of the other — no matter the physical distance between them. This allows quantum
+        computers to perform coordinated operations across many qubits simultaneously,
+        creating a kind of parallelism that has no classical equivalent.
+      </p>
+      <p>
+        Entanglement is what allows quantum algorithms like Shor's (for factoring) and
+        Grover's (for search) to achieve their dramatic speedups. The qubits don't just
+        work in parallel — they interfere with each other in mathematically precise ways
+        that amplify the probability of the right answer and cancel out wrong ones.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section fade-in">
+    <h2>Interference: Canceling out wrong answers</h2>
+    <div class="supporting-text">
+      <p>
+        Quantum algorithms are designed so that paths leading to incorrect answers
+        destructively interfere — they cancel each other out, like opposite waves
+        colliding. Paths leading to the correct answer constructively interfere,
+        building up probability until measurement almost certainly returns the right result.
+      </p>
+      <p>
+        This is the mechanism that makes quantum computers fast for the right kind of
+        problem. It's not random luck — it's engineered interference. The algorithm is
+        a precisely choreographed dance of waves.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="credits">
+  <div class="credits-inner fade-in">
+    <div class="credits-col">
+      <h3>Citations for this section</h3>
+      <ol>
+        <li>[Citation for superposition explanation]</li>
+        <li>[Citation for entanglement]</li>
+        <li>[Citation for interference / algorithm design]</li>
+        <li>[Add citations here]</li>
+      </ol>
+    </div>
+    <div class="credits-col">
+      <h3>Credits</h3>
+      <ul>
+        <li>Created by [Your Name]</li>
+        <li>[Course / Institution]</li>
+      </ul>
+    </div>
+  </div>
+  <div class="credits-bottom fade-in">
+    <span>Quantum Futures — Multimodal Project</span>
+    <span><a href="index.html" style="color: var(--accent); text-decoration: none;">← Back to Home</a></span>
+  </div>
+</footer>
+
+<script>
+  // ── Slider logic ──
+  function fmt(n) {
+    if (n >= 1e12) return (n / 1e12).toFixed(1) + 'T';
+    if (n >= 1e9)  return (n / 1e9).toFixed(1) + 'B';
+    if (n >= 1e6)  return (n / 1e6).toFixed(1) + 'M';
+    if (n >= 1e3)  return (n / 1e3).toFixed(1) + 'K';
+    return n.toString();
+  }
+
+  function renderBits(container, count, isQubit) {
+    container.innerHTML = '';
+    const max = Math.min(count, 16);
+    for (let i = 0; i < max; i++) {
+      const el = document.createElement('div');
+    el.style.cssText = `
+        width: 28px; height: 28px; border: 1px solid ${isQubit ? 'var(--violet)' : 'var(--teal)'};
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--mono); font-size: 11px;
+        color: ${isQubit ? 'var(--violet)' : 'var(--teal)'};
+        background: ${isQubit ? 'var(--violet-pale)' : 'var(--teal-pale)'};
+        border-radius: 4px;
+      `;
+      el.textContent = isQubit ? '±' : '0';
+      container.appendChild(el);
+    }
+    if (count > 16) {
+      const more = document.createElement('span');
+      more.style.cssText = 'font-family: var(--mono); font-size: 11px; color: var(--text-dim); align-self: center; padding-left: 4px;';
+      more.textContent = `+${count - 16} more`;
+      container.appendChild(more);
+    }
+  }
+
+  function update() {
+    const bits   = parseInt(document.getElementById('bit-slider').value);
+    const qubits = parseInt(document.getElementById('qubit-slider').value);
+
+    // Classical: always 1 state at a time
+    const classicalStates = 1;
+    // Quantum: 2^n states
+    const quantumStates = Math.pow(2, qubits);
+
+    document.getElementById('bit-count-label').textContent    = bits;
+    document.getElementById('qubit-count-label').textContent  = qubits;
+    document.getElementById('classical-states').textContent   = classicalStates;
+    document.getElementById('quantum-states').textContent     = fmt(quantumStates);
+    document.getElementById('summary-classical').textContent  = classicalStates;
+    document.getElementById('summary-quantum').textContent    = fmt(quantumStates);
+    document.getElementById('summary-advantage').textContent  = fmt(quantumStates) + '×';
+
+    // Bar widths (log scale for visual clarity)
+    const maxLog = Math.log2(Math.pow(2, 16));
+    const qLog   = Math.log2(quantumStates);
+    document.getElementById('classical-bar').style.width = '1%';
+    document.getElementById('quantum-bar').style.width   = Math.max(2, (qLog / maxLog) * 100) + '%';
+
+    renderBits(document.getElementById('bit-visual'),   bits,   false);
+    renderBits(document.getElementById('qubit-visual'), qubits, true);
+  }
+
+  document.getElementById('bit-slider').addEventListener('input', update);
+  document.getElementById('qubit-slider').addEventListener('input', update);
+  update();
+
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
