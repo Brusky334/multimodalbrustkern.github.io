@@ -33,6 +33,122 @@
     <div class="feature-block">
       <p class="feature-label">↳ Interactive Feature — Bit vs. Qubit Explorer</p>
 
+      <!-- PART 1: Switch vs Continuous Slider -->
+      <p style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem;">Part 1 — A single unit of information</p>
+
+      <div class="slider-container" style="margin-bottom: 0.5rem;">
+
+        <!-- BIT: on/off toggle -->
+        <div class="slider-col is-classical">
+          <span class="slider-col-label">Classical Bit</span>
+          <p style="font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-bottom: 1.5rem;">A bit has exactly two states. Click to toggle.</p>
+
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1.25rem;">
+            <!-- Toggle switch -->
+            <div id="bit-toggle" onclick="toggleBit()" style="
+              width: 80px; height: 40px; border-radius: 20px;
+              background: var(--navy-3); border: 1px solid var(--border-teal);
+              position: relative; cursor: pointer;
+              transition: background 0.25s;
+            ">
+              <div id="bit-thumb" style="
+                position: absolute; top: 4px; left: 4px;
+                width: 30px; height: 30px; border-radius: 50%;
+                background: var(--text-dim);
+                transition: transform 0.25s, background 0.25s;
+              "></div>
+            </div>
+
+            <!-- State display -->
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="text-align: center;">
+                <div id="bit-state-0" style="
+                  width: 52px; height: 52px; border-radius: 10px;
+                  border: 2px solid var(--teal); background: var(--teal-pale);
+                  display: flex; align-items: center; justify-content: center;
+                  font-family: var(--mono); font-size: 1.4rem; font-weight: 500; color: var(--teal);
+                ">0</div>
+                <p style="font-family: var(--mono); font-size: 10px; color: var(--teal); margin-top: 0.4rem; letter-spacing: 0.08em;">OFF</p>
+              </div>
+              <div style="font-family: var(--mono); font-size: 18px; color: var(--text-dim);">/</div>
+              <div style="text-align: center;">
+                <div id="bit-state-1" style="
+                  width: 52px; height: 52px; border-radius: 10px;
+                  border: 2px solid var(--border); background: transparent;
+                  display: flex; align-items: center; justify-content: center;
+                  font-family: var(--mono); font-size: 1.4rem; font-weight: 500; color: var(--text-dim);
+                  transition: all 0.25s;
+                ">1</div>
+                <p style="font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.08em;">ON</p>
+              </div>
+            </div>
+
+            <p id="bit-caption" style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-align: center;">
+              Currently: <span id="bit-val" style="color: var(--teal);">0 (OFF)</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- QUBIT: continuous probability slider -->
+        <div class="slider-col is-quantum">
+          <span class="slider-col-label">Qubit</span>
+          <p style="font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-bottom: 1.5rem;">A qubit exists in superposition — drag to set the probability of measuring 0 vs 1.</p>
+
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1.25rem;">
+            <!-- Probability slider -->
+            <div style="width: 100%;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-bottom: 0.5rem; letter-spacing: 0.08em;">
+                <span>← Pure |0⟩</span><span>Pure |1⟩ →</span>
+              </div>
+              <input type="range" id="qubit-prob" min="0" max="100" value="50" step="1"
+                style="width: 100%; accent-color: var(--violet);" oninput="updateQubit()" />
+            </div>
+
+            <!-- State display: two boxes with dynamic fill -->
+            <div style="display: flex; gap: 1rem; align-items: flex-end; width: 100%;">
+              <div style="flex: 1; text-align: center;">
+                <div style="position: relative; height: 52px; border-radius: 10px; border: 2px solid var(--violet); overflow: hidden; background: transparent;">
+                  <div id="q-fill-0" style="
+                    position: absolute; bottom: 0; left: 0; right: 0;
+                    background: var(--violet-pale); transition: height 0.2s;
+                    height: 50%;
+                  "></div>
+                  <span style="position: relative; font-family: var(--mono); font-size: 1.1rem; font-weight: 500; color: var(--violet); line-height: 52px;">0</span>
+                </div>
+                <p id="q-prob-0" style="font-family: var(--mono); font-size: 11px; color: var(--violet); margin-top: 0.4rem;">50%</p>
+              </div>
+              <div style="flex: 1; text-align: center;">
+                <div style="position: relative; height: 52px; border-radius: 10px; border: 2px solid var(--violet); overflow: hidden; background: transparent;">
+                  <div id="q-fill-1" style="
+                    position: absolute; bottom: 0; left: 0; right: 0;
+                    background: var(--violet-pale); transition: height 0.2s;
+                    height: 50%;
+                  "></div>
+                  <span style="position: relative; font-family: var(--mono); font-size: 1.1rem; font-weight: 500; color: var(--violet); line-height: 52px;">1</span>
+                </div>
+                <p id="q-prob-1" style="font-family: var(--mono); font-size: 11px; color: var(--violet); margin-top: 0.4rem;">50%</p>
+              </div>
+            </div>
+
+            <p style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-align: center;">
+              State: <span id="qubit-state-label" style="color: var(--violet);">|ψ⟩ = 0.71|0⟩ + 0.71|1⟩</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--navy-3); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2rem;">
+        <p style="font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin: 0; line-height: 1.7;">
+          <span style="color: var(--teal);">Bit:</span> always locked to exactly 0 or 1 — like a light switch with no in-between.
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <span style="color: var(--violet);">Qubit:</span> exists in a superposition until measured — the slider shows the probability amplitude. At 50/50, it is equally likely to collapse to 0 or 1.
+        </p>
+      </div>
+
+      <!-- DIVIDER -->
+      <div style="border-top: 1px solid var(--border); margin-bottom: 2rem;"></div>
+      <p style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem;">Part 2 — Scaling up: bits vs. qubits</p>
+
       <div class="slider-container" style="margin-bottom: 2rem;">
 
         <!-- CLASSICAL BIT SIDE -->
@@ -153,17 +269,17 @@
     <div class="credits-col">
       <h3>Citations for this section</h3>
       <ol>
+        <li>[Citation for superposition explanation]</li>
+        <li>[Citation for entanglement]</li>
+        <li>[Citation for interference / algorithm design]</li>
         <li>[Add citations here]</li>
-        <li> </li>
-        <li> </li>
-        <li> </li>
       </ol>
     </div>
     <div class="credits-col">
       <h3>Credits</h3>
       <ul>
-        <li>Created by Logan Brustkern</li>
-        <li>English 2500 Iowa State University</li>
+        <li>Created by [Your Name]</li>
+        <li>[Course / Institution]</li>
       </ul>
     </div>
   </div>
@@ -174,7 +290,53 @@
 </footer>
 
 <script>
-  // ── Slider logic ──
+  // ── Part 1: Bit toggle ──
+  let bitOn = false;
+  function toggleBit() {
+    bitOn = !bitOn;
+    const toggle = document.getElementById('bit-toggle');
+    const thumb  = document.getElementById('bit-thumb');
+    const s0     = document.getElementById('bit-state-0');
+    const s1     = document.getElementById('bit-state-1');
+    const label  = document.getElementById('bit-val');
+
+    toggle.style.background = bitOn ? 'rgba(14,210,176,0.2)' : 'var(--navy-3)';
+    thumb.style.transform   = bitOn ? 'translateX(40px)' : 'translateX(0)';
+    thumb.style.background  = bitOn ? 'var(--teal)' : 'var(--text-dim)';
+
+    if (bitOn) {
+      s0.style.borderColor = 'var(--border)'; s0.style.background = 'transparent'; s0.style.color = 'var(--text-dim)';
+      s1.style.borderColor = 'var(--teal)';   s1.style.background = 'var(--teal-pale)'; s1.style.color = 'var(--teal)';
+      label.textContent = '1 (ON)'; label.style.color = 'var(--teal)';
+    } else {
+      s0.style.borderColor = 'var(--teal)';   s0.style.background = 'var(--teal-pale)'; s0.style.color = 'var(--teal)';
+      s1.style.borderColor = 'var(--border)'; s1.style.background = 'transparent';      s1.style.color = 'var(--text-dim)';
+      label.textContent = '0 (OFF)'; label.style.color = 'var(--teal)';
+    }
+  }
+
+  // ── Part 1: Qubit probability display ──
+  function updateQubit() {
+    const v    = parseInt(document.getElementById('qubit-prob').value);
+    const p1   = v;          // probability of |1⟩ in %
+    const p0   = 100 - v;    // probability of |0⟩ in %
+    const a1   = Math.sqrt(p1 / 100).toFixed(2);
+    const a0   = Math.sqrt(p0 / 100).toFixed(2);
+
+    document.getElementById('q-fill-0').style.height = p0 + '%';
+    document.getElementById('q-fill-1').style.height = p1 + '%';
+    document.getElementById('q-prob-0').textContent  = p0 + '%';
+    document.getElementById('q-prob-1').textContent  = p1 + '%';
+
+    let stateStr;
+    if (p0 === 100)      stateStr = '|ψ⟩ = |0⟩';
+    else if (p1 === 100) stateStr = '|ψ⟩ = |1⟩';
+    else                 stateStr = `|ψ⟩ = ${a0}|0⟩ + ${a1}|1⟩`;
+    document.getElementById('qubit-state-label').textContent = stateStr;
+  }
+  updateQubit();
+
+  // ── Part 2: Slider logic ──
   function fmt(n) {
     if (n >= 1e12) return (n / 1e12).toFixed(1) + 'T';
     if (n >= 1e9)  return (n / 1e9).toFixed(1) + 'B';
